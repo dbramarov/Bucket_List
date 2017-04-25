@@ -1,0 +1,38 @@
+<div ng-controller="mainController">
+	<h1>Bucket List</h1>
+	<h1 ng-repeat="message in messages">{{message}}</h1>
+	<p>Welcome, {{user_name}}!</p>
+	<button ng-click='logout()'>Log Out</button>
+	<hr>
+
+    <div ng-repeat="error in errors">
+        <p>{{error.message}}</p>
+    </div>
+
+	<form ng-submit="create()">
+        <p>Title: <input type="text" ng-model="newList.title"/></p>
+        <p>Description: <input type="text" ng-model="newList.description"/></p>
+        <select ng-model="newList.tageduser">
+            <option value="" disabled selected>Select a user</option>
+            <option ng-repeat="user in users" value="{{user._id}}">{{user.name}}</option>
+        </select>
+        <p><input type="submit" value="Add to list" /></p>
+    </form>
+
+    <hr>
+
+    <h2>Before I die I want to...</h2>
+    <div ng-repeat="L in current_user.lists | orderBy: '-createdAt' track by $index">
+        <p>
+            <input type="checkbox" ng-click="check(L._id)" checked ng-show="{{L.checked}}"/>
+            <input type="checkbox" ng-click="check(L._id)" ng-show="!{{L.checked}}"/>
+            {{L.tagname}} | {{L.title}} - {{L.description}} - {{L.createdAt | date:"short"}}
+        </p>
+    </div>
+    <hr>
+
+    <h2>List of other users (click to see profile):</h2>
+        <div ng-repeat="user in users | orderBy: '-createdAt' track by $index">
+            <h4><a href="#!/users/{{user._id}}">{{user.name}}</a></h4>
+        </div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "MEAN_belt_2",
+  "homepage": "https://github.com/iota-cohort-dc/Dorian_Bramarov",
+  "authors": [
+    "Dorian Bramarov <dbramarov@yahoo.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-cookies": "^1.6.4"
+  }
+}

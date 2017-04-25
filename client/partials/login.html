@@ -1,0 +1,10 @@
+<div ng-controller="usersController">
+
+	<h1 ng-repeat="message in messages">{{message}}</h1>
+	<h2>Bucket Lists:</h2>
+	<form ng-submit="login()" method="post">
+	    <p>Name: <input type="text" ng-model="person.name" required></p>
+	    <input type="submit" value="Login">
+	</form>
+
+</div>

@@ -1,0 +1,35 @@
+<div ng-controller="usersController">
+
+    <a href="#!/main/{{user_id}}">Home</a> | <a href="" ng-click="logout()">Logout</a>
+    <h3>{{user.name}}'s Bucket List</h3>
+    <h4>Done</h4>
+    <div ng-repeat="finished in user_done | orderBy: '-createdAt' track by $index">
+        <p>
+            <input type="checkbox" ng-click="check(finished._id)" checked disabled ng-show="{{finished.checked}}"/>
+            <input type="checkbox" ng-click="check(finished._id)" disabled ng-show="!{{finished.checked}}"/>
+            {{finished.tagname}} | {{finished.title}} - {{finished.description}} - {{finished.createdAt | date:"short"}}
+        </p>
+    </div>
+    <div ng-repeat="finished in taged_done | orderBy: '-createdAt' track by $index">
+        <p>
+            <input type="checkbox" ng-click="check(finished._id)" checked disabled ng-show="{{finished.checked}}"/>
+            <input type="checkbox" ng-click="check(finished._id)" disabled ng-show="!{{finished.checked}}"/>
+            {{finished.tagname}} | {{finished.title}} - {{finished.description}} - {{finished.createdAt | date:"short"}}
+        </p>
+    </div>
+    <h4>Pending</h4>
+    <div ng-repeat="pending in user_pend | orderBy: '-createdAt' track by $index">
+        <p>
+            <input type="checkbox" ng-click="check(pending._id)" checked disabled ng-show="{{pending.checked}}"/>
+            <input type="checkbox" ng-click="check(pending._id)" disabled ng-show="!{{pending.checked}}"/>
+            {{pending.tagname}} | {{pending.title}} - {{pending.description}} - {{pending.createdAt | date:"short"}}
+        </p>
+    </div>
+    <div ng-repeat="pending in taged_pend | orderBy: '-createdAt' track by $index">
+        <p>
+            <input type="checkbox" ng-click="check(pending._id)" checked disabled ng-show="{{pending.checked}}"/>
+            <input type="checkbox" ng-click="check(pending._id)" disabled ng-show="!{{pending.checked}}"/>
+            {{pending.tagname}} | {{pending.title}} - {{pending.description}} - {{pending.createdAt | date:"short"}}
+        </p>
+    </div>
+</div>
